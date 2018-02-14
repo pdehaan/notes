@@ -225,20 +225,24 @@ footer {
   border-left: 1px solid #d7d7db;
   display: flex;
   flex: 0 0 40px;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Hide select menu on saving mode */
 .savingLayout #context-menu-button {
   display: none;
+  opacity: 0;
+  visibility: none;
+  z-index: 0;
+  transition: visibility 0s var(--sync-animation-duration), opacity var(--sync-animation-duration) cubic-bezier(.07,.95,0,1);
 }
 
 /* Display feedback button with opacity */
 .savingLayout #give-feedback-button {
   opacity: 1;
   z-index: 1;
-  visiblity: visible;
+  visibility: visible;
   transition: opacity var(--sync-animation-duration) cubic-bezier(.07,.95,0,1) var(--sync-animation-duration);
 }
 
@@ -247,8 +251,8 @@ footer {
   opacity: 0;
   z-index: 0;
   cursor: default;
-  visiblity: hidden;
-  transition: opacity var(--sync-animation-duration) cubic-bezier(.07,.95,0,1), visibity 0s var(--sync-animation-duration);
+  visibility: hidden;
+  transition: opacity var(--sync-animation-duration) cubic-bezier(.07,.95,0,1), visibility 0s var(--sync-animation-duration);
 }
 
 #footer-buttons button,
@@ -339,14 +343,6 @@ footer {
 #context-menu-button:focus,
 #context-menu-button:active {
   background-color: rgba(128, 128, 128, 0.2) !important;
-}
-
-/* Hide select menu on saving mode */
-.savingLayout #context-menu-button {
-  opacity: 0;
-  visibility: none;
-  z-index: 0;
-  transition: visibility 0s var(--sync-animation-duration), opacity var(--sync-animation-duration) cubic-bezier(.07,.95,0,1);
 }
 
 /* Show select menu on syncing mode */
